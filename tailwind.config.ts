@@ -61,7 +61,31 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// Anime-specific colors
+				sakura: {
+					DEFAULT: 'hsl(var(--sakura))',
+					light: 'hsl(var(--sakura-light))'
+				},
+				neon: {
+					blue: 'hsl(var(--neon-blue))',
+					purple: 'hsl(var(--neon-purple))'
+				},
+				golden: 'hsl(var(--golden))'
+			},
+			backgroundImage: {
+				'gradient-sakura': 'var(--gradient-sakura)',
+				'gradient-neon': 'var(--gradient-neon)',
+				'gradient-card': 'var(--gradient-card)'
+			},
+			boxShadow: {
+				'glow-sakura': 'var(--glow-sakura)',
+				'glow-neon': 'var(--glow-neon)',
+				'card': 'var(--shadow-card)'
+			},
+			fontFamily: {
+				'display': ['Inter', 'system-ui', 'sans-serif'],
+				'body': ['Inter', 'system-ui', 'sans-serif']
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

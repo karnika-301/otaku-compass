@@ -7,36 +7,62 @@ All colors MUST be HSL.
 */
 
 @layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+:root {
+    /* Anime-inspired color palette */
+    --background: 225 25% 6%;
+    --foreground: 330 15% 95%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 225 25% 8%;
+    --card-foreground: 330 15% 95%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 225 25% 8%;
+    --popover-foreground: 330 15% 95%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Sakura pink as primary */
+    --primary: 338 85% 65%;
+    --primary-foreground: 225 25% 6%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Neon blue secondary */
+    --secondary: 246 100% 75%;
+    --secondary-foreground: 225 25% 6%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Purple muted tones */
+    --muted: 225 25% 12%;
+    --muted-foreground: 330 15% 75%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Golden accent */
+    --accent: 48 100% 70%;
+    --accent-foreground: 225 25% 6%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 330 15% 95%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 225 25% 15%;
+    --input: 225 25% 12%;
+    --ring: 338 85% 65%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Custom anime design tokens */
+    --sakura: 338 85% 65%;
+    --sakura-light: 338 85% 85%;
+    --neon-blue: 246 100% 75%;
+    --neon-purple: 270 100% 75%;
+    --golden: 48 100% 70%;
+    --dark-surface: 225 25% 8%;
+    --darker-surface: 225 25% 4%;
+    
+    /* Gradients */
+    --gradient-sakura: linear-gradient(135deg, hsl(var(--sakura)), hsl(var(--neon-purple)));
+    --gradient-neon: linear-gradient(135deg, hsl(var(--neon-blue)), hsl(var(--neon-purple)));
+    --gradient-card: linear-gradient(135deg, hsl(var(--dark-surface)), hsl(var(--muted)));
+    
+    /* Shadows and glows */
+    --glow-sakura: 0 0 30px hsl(var(--sakura) / 0.3);
+    --glow-neon: 0 0 30px hsl(var(--neon-blue) / 0.3);
+    --shadow-card: 0 10px 40px hsl(var(--darker-surface) / 0.8);
+
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
