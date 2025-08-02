@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Search, Menu, User, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -12,11 +12,28 @@ const Index = () => {
   const [filters, setFilters] = useState({});
   const [showFilters, setShowFilters] = useState(false);
   const [filteredAnime, setFilteredAnime] = useState(sampleAnime);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [currentSection, setCurrentSection] = useState("discover");
 
   const handleFiltersChange = (newFilters: any) => {
     setFilters(newFilters);
-    const filtered = filterAnime(sampleAnime, newFilters);
+    const filtered = filterAnime(sampleAnime, { ...newFilters, search: searchTerm });
     setFilteredAnime(filtered);
+  };
+
+  const handleSearch = (value: string) => {
+    setSearchTerm(value);
+    const filtered = filterAnime(sampleAnime, { ...filters, search: value });
+    setFilteredAnime(filtered);
+  };
+
+  const handleNavigation = (section: string) => {
+    setCurrentSection(section);
+    if (section !== "discover") {
+      setFilters({});
+      setSearchTerm("");
+      setFilteredAnime(sampleAnime);
+    }
   };
 
   return (
@@ -30,15 +47,36 @@ const Index = () => {
                 AnimeVerse
               </h1>
               <nav className="hidden md:flex items-center gap-6">
-                <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                <button 
+                  onClick={() => handleNavigation("discover")}
+                  className={`text-sm transition-colors ${
+                    currentSection === "discover" 
+                      ? "text-primary font-medium" 
+                      : "text-muted-foreground hover:text-primary"
+                  }`}
+                >
                   Discover
-                </a>
-                <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                </button>
+                <button 
+                  onClick={() => handleNavigation("trending")}
+                  className={`text-sm transition-colors ${
+                    currentSection === "trending" 
+                      ? "text-primary font-medium" 
+                      : "text-muted-foreground hover:text-primary"
+                  }`}
+                >
                   Trending
-                </a>
-                <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                </button>
+                <button 
+                  onClick={() => handleNavigation("reviews")}
+                  className={`text-sm transition-colors ${
+                    currentSection === "reviews" 
+                      ? "text-primary font-medium" 
+                      : "text-muted-foreground hover:text-primary"
+                  }`}
+                >
                   Reviews
-                </a>
+                </button>
               </nav>
             </div>
             
@@ -47,6 +85,8 @@ const Index = () => {
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                 <Input
                   placeholder="Search anime..."
+                  value={searchTerm}
+                  onChange={(e) => handleSearch(e.target.value)}
                   className="pl-10 bg-background/50 border-border/50 focus:border-primary/50"
                 />
               </div>
@@ -91,10 +131,19 @@ const Index = () => {
               find the perfect anime for every mood and moment.
             </p>
             <div className="flex gap-4">
-              <Button size="lg" className="bg-gradient-sakura hover:shadow-glow-sakura transition-all duration-300">
+              <Button 
+                size="lg" 
+                onClick={() => handleNavigation("discover")}
+                className="bg-gradient-sakura hover:shadow-glow-sakura transition-all duration-300"
+              >
                 Get Recommendations
               </Button>
-              <Button variant="outline" size="lg" className="border-primary/30 hover:bg-primary/10">
+              <Button 
+                variant="outline" 
+                size="lg" 
+                onClick={() => setShowFilters(true)}
+                className="border-primary/30 hover:bg-primary/10"
+              >
                 Browse Genres
               </Button>
             </div>
