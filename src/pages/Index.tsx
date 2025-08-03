@@ -100,11 +100,19 @@ const Index = () => {
                 <Menu className="h-4 w-4" />
               </Button>
               
-              <Button variant="ghost" size="sm">
+              <Button 
+                variant="ghost" 
+                size="sm"
+                onClick={() => console.log('Opening watchlist')}
+              >
                 <BookOpen className="h-4 w-4" />
               </Button>
               
-              <Button variant="ghost" size="sm">
+              <Button 
+                variant="ghost" 
+                size="sm"
+                onClick={() => console.log('Opening user profile')}
+              >
                 <User className="h-4 w-4" />
               </Button>
             </div>

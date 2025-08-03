@@ -35,12 +35,20 @@ export const AnimeCard = ({
         <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         <Button
           size="sm"
+          onClick={(e) => {
+            e.stopPropagation();
+            console.log(`Added ${title} to favorites`);
+          }}
           className="absolute top-3 right-3 bg-background/20 backdrop-blur-sm hover:bg-primary/20 transition-all duration-300"
         >
           <Heart className="h-4 w-4" />
         </Button>
         <Button
           size="sm"
+          onClick={(e) => {
+            e.stopPropagation();
+            console.log(`Playing ${title}`);
+          }}
           className="absolute bottom-3 right-3 bg-primary/80 hover:bg-primary transition-all duration-300 opacity-0 group-hover:opacity-100"
         >
           <Play className="h-4 w-4" />

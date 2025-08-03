@@ -46,7 +46,12 @@ export const CuratedSection = ({
             </div>
           </div>
           {viewAllLink && (
-            <Button variant="ghost" size="sm" className="text-primary hover:text-primary/80">
+            <Button 
+              variant="ghost" 
+              size="sm" 
+              className="text-primary hover:text-primary/80"
+              onClick={() => console.log(`Navigating to ${viewAllLink}`)}
+            >
               View All
               <ChevronRight className="h-4 w-4 ml-1" />
             </Button>
